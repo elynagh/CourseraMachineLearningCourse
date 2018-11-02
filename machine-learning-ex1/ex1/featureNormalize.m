@@ -25,11 +25,11 @@ sigma = zeros(1, size(X, 2));
 %
 % Hint: You might find the 'mean' and 'std' functions useful.
 %       
-for i=size(X, 2),
-  mu(:,i) = mean(X(:,i))
-  sigma(:,i) = std(X(:,i))
-  X_norm(:,1) = (X(:,i) - (mu(:,i) / sigma(:,i)))
-end;
+mu = mean(X);
+sigma = std(X);
+
+t = ones(length(X), 1);
+X_norm = (X - (t * mu)) ./ (t * sigma); % Vectorized
 
 
 
